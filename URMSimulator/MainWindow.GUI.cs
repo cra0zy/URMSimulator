@@ -88,6 +88,9 @@ namespace URMSimulator
             vpanned1.Panel2.Content = vbox2;
             vpanned1.Panel2.Resize = false;
 
+            if (Toolkit.CurrentEngine.Type == ToolkitType.Wpf)
+                vpanned1.Position = this.Height - 120;
+
             vbox1.PackStart(vpanned1, true);
 
             button1 = new Button("Continue Debugging");

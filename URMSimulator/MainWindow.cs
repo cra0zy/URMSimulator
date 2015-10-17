@@ -144,8 +144,8 @@ namespace URMSimulator
             adialog.TransientFor = this;
             adialog.ProgramName = "URM Simulator v1.0.0";
             adialog.Comments = "Unlimited Register Machine SImulator";
-            adialog.Website = "http://www.github.com/cra0zy/";
-            adialog.WebsiteLabel = "Project Website";
+            adialog.Website = "https://github.com/cra0zy/URMSimulator";
+            adialog.WebsiteLabel = "Project Webpage";
             adialog.Image = Xwt.Drawing.Image.FromResource("URMSimulator.Resources.urm.png");
 
             adialog.Run();
