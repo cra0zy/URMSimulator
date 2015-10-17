@@ -1,0 +1,6 @@
+[submodule "ThirdParty/XwtPlus.TextEditor"]
+	path = ThirdParty/XwtPlus.TextEditor
+	url = https://github.com/cra0zy/XwtPlus.TextEditor.git
+[submodule "ThirdParty/xwt"]
+	path = ThirdParty/xwt
+	url = https://github.com/mono/xwt.git

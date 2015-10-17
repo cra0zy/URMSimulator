@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{B0AD4295-C14C-4D65-A5DC-DAABDD2FF047}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>URMSimulator.Gtk3</RootNamespace>
+    <AssemblyName>URMSimulator.Gtk3</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\URMSimulator\URMSimulator.csproj">
+      <Project>{FA77D13B-EEEC-479C-8378-72F1CC90DB22}</Project>
+      <Name>URMSimulator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThirdParty\xwt\Xwt\Xwt.csproj">
+      <Project>{92494904-35FA-4DC9-BDE9-3A3E87AC49D3}</Project>
+      <Name>Xwt</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThirdParty\xwt\Xwt.Gtk\Xwt.Gtk3.csproj">
+      <Project>{3B25FD1F-CEBA-4450-8893-DC330FDB56A7}</Project>
+      <Name>Xwt.Gtk3</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThirdParty\XwtPlus.TextEditor\XwtPlus.TextEditor\XwtPlus.TextEditor.csproj">
+      <Project>{FA8374B9-9E2A-40CE-9291-640419E64301}</Project>
+      <Name>XwtPlus.TextEditor</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
