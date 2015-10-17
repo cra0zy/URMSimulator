@@ -52,15 +52,22 @@ namespace URMSimulator
                 fname = Path.GetFileName(fileName);
             this.Title = "URM Simulator - " + fname;
 
-            ReloadTitleEnding();
+            ReloadMenuAndTitleEnding();
         }
 
-        private void ReloadTitleEnding()
+        private void ReloadMenuAndTitleEnding()
         {
             if (savedContent != te1.Document.Text && !this.Title.EndsWith("*"))
                 this.Title = this.Title + "*";
             else if (savedContent == te1.Document.Text && this.Title.EndsWith("*"))
                 this.Title = this.Title.Remove(this.Title.Length - 1);
+            
+            undoMenuItem.Sensitive = te1.CanUndo();
+            redoMenuItem.Sensitive = te1.CanRedo();
+
+            cutMenuItem.Sensitive = te1.CanCopy();
+            copyMenuItem.Sensitive = te1.CanCopy();
+            pasteMenuItem.Sensitive = te1.CanPaste();
         }
 
         private bool MaybeSave()
@@ -83,6 +90,7 @@ namespace URMSimulator
 
             fileName = "";
             te1.Document.Text = "";
+            te1.ClearUndoRedoStack();
             savedContent = te1.Document.Text;
 
             ReloadMenuAndTitle();
@@ -99,6 +107,7 @@ namespace URMSimulator
             {
                 fileName = ofdialog.FileName;
                 te1.Document.Text = File.ReadAllText(fileName);
+                te1.ClearUndoRedoStack();
                 savedContent = te1.Document.Text;
 
                 ReloadMenuAndTitle();

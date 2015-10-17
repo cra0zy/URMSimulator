@@ -37,8 +37,7 @@ namespace URMSimulator
             te1 = new TextEditor();
             te1.Document.MimeType = "text/x-urm";
             te1.Document.Text = savedContent;
-            te1.Document.LineChanged += (sender, e) => ReloadTitleEnding();
-            te1.Document.TextSet += (sender, e) => ReloadTitleEnding();
+            te1.OnUndoRedoStackChanged += (sender, e) => ReloadMenuAndTitleEnding();
 
             vpanned1.Panel1.Content = te1;
             vpanned1.Panel1.Resize = true;
@@ -138,15 +137,6 @@ namespace URMSimulator
 
             var editMenu = new MenuItem("Edit");
             editMenu.SubMenu = new Menu();
-            editMenu.Clicked += delegate
-            {
-                undoMenuItem.Sensitive = te1.CanUndo();
-                redoMenuItem.Sensitive = te1.CanRedo();
-
-                cutMenuItem.Sensitive = te1.CanCopy();
-                copyMenuItem.Sensitive = te1.CanCopy();
-                pasteMenuItem.Sensitive = te1.CanPaste();
-            };
             menu.Items.Add(editMenu);
 
             undoMenuItem = new MenuItem("Undo");
